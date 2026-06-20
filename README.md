@@ -21,13 +21,14 @@ Wednesday - Thursday: Team meets on Teams to get to know each other. Create the 
 
 Thursday – Saturday: Work together on understanding and drafting the UML diagram of the university model. After that, submit the UML and repo link. Then, begin the main project by assigning each member an area to focus on (Admin, Faculty, Student). Upload the skeleton code to the group repo so each member can start working from there on their own branch.
 
+Sunday: The team integrates the Access Control layer first (login/logout and role-based authorization) since all use cases depend on it, and confirms the shared project runs. Each member begins implementing their assigned use case on their own branch, committing regularly.
 
 Week 8: 
 
-Monday – Thursday: Schedule 1 full team check-up meeting to confirm everyone is on track and surface any blockers early. 
+Monday – Thursday: Members continue building out their use case responsibilities, with a full-team check-in to confirm everyone is on track and surface any blockers early. Members open pull requests as pieces are completed and review each other's work before merging.
 
-Friday – Saturday: Once everyone has committed, pushed, and merged their own part, each member will test and review their own case to confirm it works. 
+Friday – Saturday:  All branches are merged into main; the team runs the full project together to confirm it's runnable with no terminal errors. In parallel, the team writes the README (all required sections), prepares the 5 minute presentation slides, and records the demo video (uploaded to YouTube as unlisted).
 
-Saturday – Sunday: Final check-up meeting to resolve any remaining problems. If not, one team member will submit the midterm project.  
+Saturday – Sunday: Final review and bug fixing pass. Once everything works, the team packages the deliverables zip the code, gather the YouTube link and slides and submits everything on Canvas before the deadline time coming.
 
  
