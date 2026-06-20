@@ -23,6 +23,7 @@ Thursday – Saturday: Work together on understanding and drafting the UML diagr
 
 
 Week 8: 
+
 Monday – Thursday: Schedule 1 full team check-up meeting to confirm everyone is on track and surface any blockers early. 
 
 Friday – Saturday: Once everyone has committed, pushed, and merged their own part, each member will test and review their own case to confirm it works. 
