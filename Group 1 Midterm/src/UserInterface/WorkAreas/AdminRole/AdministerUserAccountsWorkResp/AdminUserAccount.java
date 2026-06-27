@@ -43,6 +43,16 @@ public class AdminUserAccount extends javax.swing.JPanel {
         Back = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         Back1 = new javax.swing.JButton();
+        lblRole = new javax.swing.JLabel();
+        lblUserName = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
+        txtUserName = new javax.swing.JTextField();
+        lblStatusValue = new javax.swing.JLabel();
+        lblStatus = new javax.swing.JLabel();
+        lblRoleValue1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setLayout(null);
@@ -54,12 +64,12 @@ public class AdminUserAccount extends javax.swing.JPanel {
             }
         });
         add(Back);
-        Back.setBounds(480, 290, 100, 32);
+        Back.setBounds(490, 390, 100, 23);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel2.setText("Administer User Account");
         add(jLabel2);
-        jLabel2.setBounds(21, 20, 550, 29);
+        jLabel2.setBounds(21, 20, 550, 28);
 
         Back1.setText("<< Back");
         Back1.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +78,52 @@ public class AdminUserAccount extends javax.swing.JPanel {
             }
         });
         add(Back1);
-        Back1.setBounds(40, 290, 100, 32);
+        Back1.setBounds(50, 390, 100, 23);
+
+        lblRole.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
+        lblRole.setText("Role");
+        add(lblRole);
+        lblRole.setBounds(50, 100, 80, 20);
+
+        lblUserName.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
+        lblUserName.setText("User Name");
+        add(lblUserName);
+        lblUserName.setBounds(50, 180, 110, 20);
+
+        lblName.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
+        lblName.setText("Name");
+        add(lblName);
+        lblName.setBounds(50, 140, 44, 20);
+
+        lblPassword.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
+        lblPassword.setText("Password");
+        add(lblPassword);
+        lblPassword.setBounds(50, 220, 100, 20);
+
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
+        add(txtName);
+        txtName.setBounds(220, 140, 120, 23);
+        add(txtPassword);
+        txtPassword.setBounds(220, 220, 120, 23);
+        add(txtUserName);
+        txtUserName.setBounds(220, 180, 120, 23);
+
+        lblStatusValue.setForeground(new java.awt.Color(255, 255, 255));
+        add(lblStatusValue);
+        lblStatusValue.setBounds(220, 260, 80, 17);
+
+        lblStatus.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
+        lblStatus.setText("Status");
+        add(lblStatus);
+        lblStatus.setBounds(50, 260, 100, 20);
+
+        lblRoleValue1.setForeground(new java.awt.Color(255, 255, 255));
+        add(lblRoleValue1);
+        lblRoleValue1.setBounds(220, 100, 80, 17);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
@@ -87,11 +142,25 @@ public class AdminUserAccount extends javax.swing.JPanel {
 
     }//GEN-LAST:event_Back1ActionPerformed
 
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
     private javax.swing.JButton Back1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblRole;
+    private javax.swing.JLabel lblRoleValue1;
+    private javax.swing.JLabel lblStatus;
+    private javax.swing.JLabel lblStatusValue;
+    private javax.swing.JLabel lblUserName;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPassword;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 
 }

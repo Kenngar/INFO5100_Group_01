@@ -13,7 +13,6 @@ public class Person {
 
     String id;
     String name;
-    String NUID;
     String email;
     String phoneNumber;
 
@@ -36,14 +35,6 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getNUID() {
-        return NUID;
-    }
-
-    public void setNUID(String NUID) {
-        this.NUID = NUID;
     }
 
     public String getEmail() {
@@ -75,3 +66,5 @@ public class Person {
         return getPersonId();
     }
 }
+
+

@@ -6,6 +6,12 @@
 package UserInterface.WorkAreas.AdminRole.ManagePersonnelWorkResp;
 
 import Business.Business;
+import Business.Person.Person;
+import Business.Person.PersonDirectory;
+import Business.Profiles.EmployeeDirectory;
+import Business.Profiles.EmployeeProfile;
+import Business.UserAccounts.UserAccountDirectory;
+import javax.swing.JOptionPane;
 
 import javax.swing.JPanel;
 
@@ -21,11 +27,13 @@ public class AdministerPersonJPanel extends javax.swing.JPanel {
     JPanel CardSequencePanel;
 
     Business business;
+    ManagePersonsJPanel parent;
 
-    public AdministerPersonJPanel(Business bz, JPanel jp) {
+    public AdministerPersonJPanel(Business bz, JPanel jp, ManagePersonsJPanel parent) {
 
         CardSequencePanel = jp;
         this.business = bz;
+        this.parent = parent;
         initComponents();
 
 
@@ -44,39 +52,174 @@ public class AdministerPersonJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Back = new javax.swing.JButton();
+        btnCreate = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        txtFullName = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        txtPhone = new javax.swing.JTextField();
+        txtPersonTitle = new javax.swing.JTextField();
+        txtDepartment = new javax.swing.JTextField();
+        txtUserName = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
+        lblEmail = new javax.swing.JLabel();
+        lblPhone = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
+        lblFullName = new javax.swing.JLabel();
+        lblDepartment = new javax.swing.JLabel();
+        lblUserName = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setLayout(null);
 
-        Back.setText("<< Back");
-        Back.addActionListener(new java.awt.event.ActionListener() {
+        btnCreate.setText("Create >>");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackActionPerformed(evt);
+                btnCreateActionPerformed(evt);
             }
         });
-        add(Back);
-        Back.setBounds(30, 290, 76, 32);
+        add(btnCreate);
+        btnCreate.setBounds(310, 390, 90, 23);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel2.setText("Manage Person Profile");
+        jLabel2.setText("Manage Person Profile (Employee Registration)");
         add(jLabel2);
-        jLabel2.setBounds(21, 20, 550, 29);
+        jLabel2.setBounds(21, 20, 550, 28);
+
+        btnBack.setText("<< Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack);
+        btnBack.setBounds(190, 390, 80, 23);
+        add(txtFullName);
+        txtFullName.setBounds(170, 90, 260, 23);
+        add(txtEmail);
+        txtEmail.setBounds(170, 130, 260, 23);
+        add(txtPhone);
+        txtPhone.setBounds(170, 170, 160, 23);
+        add(txtPersonTitle);
+        txtPersonTitle.setBounds(170, 210, 260, 23);
+        add(txtDepartment);
+        txtDepartment.setBounds(170, 250, 260, 23);
+        add(txtUserName);
+        txtUserName.setBounds(170, 290, 260, 23);
+        add(txtPassword);
+        txtPassword.setBounds(170, 330, 170, 23);
+
+        lblEmail.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblEmail.setText("Email");
+        add(lblEmail);
+        lblEmail.setBounds(50, 130, 80, 19);
+
+        lblPhone.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblPhone.setText("Phone");
+        add(lblPhone);
+        lblPhone.setBounds(50, 170, 80, 19);
+
+        lblTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblTitle.setText("Title");
+        add(lblTitle);
+        lblTitle.setBounds(50, 210, 80, 19);
+
+        lblPassword.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblPassword.setText("Password");
+        add(lblPassword);
+        lblPassword.setBounds(50, 330, 80, 19);
+
+        lblFullName.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblFullName.setText("Full Name");
+        add(lblFullName);
+        lblFullName.setBounds(50, 90, 80, 19);
+
+        lblDepartment.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblDepartment.setText("Department");
+        add(lblDepartment);
+        lblDepartment.setBounds(50, 250, 80, 19);
+
+        lblUserName.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblUserName.setText("Username");
+        add(lblUserName);
+        lblUserName.setBounds(50, 290, 80, 19);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+        String name = txtFullName.getText();
+        String email = txtEmail.getText();
+        String phone = txtPhone.getText();
+        String title = txtPersonTitle.getText();
+        String department = txtDepartment.getText();
+        String username = txtUserName.getText();
+        String password = txtPassword.getText();
+
+        if (name.isEmpty() || username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Name, user name and password are required.",
+                    "Missing Information", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        UserAccountDirectory uad = business.getUserAccountDirectory();
+        if (uad.isUsernameTaken(username)) {
+            JOptionPane.showMessageDialog(this, "That user name is already taken.",
+                    "User Name Unavailable", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        PersonDirectory personDir = business.getPersonDirectory();
+        Person person = personDir.newPerson(name);
+        person.setName(name);
+        person.setEmail(email);
+        person.setPhoneNumber(phone);
+
+        EmployeeDirectory ed = business.getEmployeeDirectory();
+        EmployeeProfile ep = ed.newEmployeeProfile(person);
+        ep.setTitle(title);
+        ep.setDepartment(department);
+
+        uad.newUserAccount(ep, username, password);
+
+        JOptionPane.showMessageDialog(this, "Employee registered successfully.",
+                "Saved", JOptionPane.INFORMATION_MESSAGE);
+
+        parent.refreshTable();
+        
         CardSequencePanel.remove(this);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
 
 
-    }//GEN-LAST:event_BackActionPerformed
+    }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        CardSequencePanel.remove(this);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+
+        
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Back;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCreate;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblDepartment;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblFullName;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblPhone;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblUserName;
+    private javax.swing.JTextField txtDepartment;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtFullName;
+    private javax.swing.JTextField txtPassword;
+    private javax.swing.JTextField txtPersonTitle;
+    private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 
 }
