@@ -13,52 +13,54 @@ The Digital University System is a Java Swing desktop application that models th
 logs in, the application authenticates their credentials and routes them to the work area that matches their role, enforcing role-based access control throughout.
 
 3. Installation & Setup Instructions: 
-Netbeans IDE 16, JDK 19
-
+    Netbeans IDE 16, JDK 19
 // Provide step-by-step setup instructions, including how to clone the repository and run the project
-    Once the skeleton code is uploaded to the group repo. Team member will open github desktop, at the main branch we fetch origin to      bring down the most updated version of the skeleton. We then switch to our own branch (e.g. feauture-member 2) and merge main to       our own branch so we could start creating code on our own without messing up the main version of the skeleton. Then we would open      the project in Netbeans and start our work. 
-    Run the project: Run → Run Project (or press F6). The login window will appear.
+- Once the skeleton code is uploaded to the group repo, each team member opens GitHub Desktop:
+    1. On the main branch, click Fetch origin to pull the latest skeleton.
+    2. Switch to your own branch (e.g. feature-member2).
+    3. Merge main into your branch so you can work without affecting the main skeleton.
+    4. Open the project in NetBeans and start your work.
+    5. Run the project: Run → Run Project (or press F6). The login window appears.
 
 
 4. Authentication & Access Control: 
 // Explain the authentication process (e.g., login, logout)
-    On launch, the application shows a login screen with User Name and Password fields.
-    When the user clicks Login, the system calls UserAccountDirectory.AuthenticateUser(username, password), which checks the entered       credentials against every stored UserAccount.
-    If no match is found, login is rejected and the user remains on the login screen.
-    If a match is found, the system retrieves the account's associated Profile and routes the user to the correct work area.
+- On launch, the application shows a login screen with User Name and Password fields.
+  When the user clicks Login, the system calls UserAccountDirectory.AuthenticateUser(username, password), which checks the entered       credentials against every stored UserAccount.
+  If no match is found, login is rejected and the user remains on the login screen.
+  If a match is found, the system retrieves the account's associated Profile and routes the user to the correct work area.
 // Describe the authorization rules for different user roles (Admin, Faculty, Student)
-    After successful authentication, the system inspects the profile type and opens only that role's work area:
+- After successful authentication, the system inspects the profile type and opens only that role's work area:
     Admin - EmployeeProfile - "Admin" - AdminRoleWorkAreaJPanel
 
 5. Features Implemented
 //Detail the functionalities implemented for each role
 //Clearly specify which team member was responsible for each feature
-
-Admin - (Anh Nguyen - Member 2) 
-Administer User Accounts (ManageUserAccountsJPanel, AdminUserAccount, CreateUserAccountJPanel) 
-    View all user accounts in a table (User Name, Status, Person, Last Updated).
-    Create a new account for any person who has a profile but no account yet (the create screen lists only account-less profiles from      the Employee, Student, and Faculty directories).
-    Modify an account's username, password, and status; the person's name is shown read-only.
-    Delete an account with a confirmation prompt.
-Register Persons (HR) (ManagePersonsJPanel → AdministerPersonJPanel)
-    Register a new person with name, email, and phone.
-    Select a registered person and assign them a role (Employee/Admin, Faculty, or Student), which creates the matching profile.
-    Create a user account (username + password) for the newly profiled person, with duplicate username validation.
-Manage Students (ManageStudentJPanel)
-    View all students (Name, Email, Phone, Hobbies).
-    Update a selected student's details.
-    Delete a student (and their linked login if one exists).
-Manage Faculty (ManageFacultyJPanel)
-    View all faculty members in a table.
-    Update a selected faculty member's name.
-    Delete a faculty member.
-Manage Staff / Employees (ManageEmployeeJPanel)
-    View all employees (Name, Email, Phone).
-    Update a selected employee's details.
-    Delete an employee, with a guard that prevents the logged-in admin from deleting their own record.
-My Profile (AdminMyProfileJPanel)
-    View the logged-in admin's own details (name, role, last updated).
-    Update their own email, phone, username, and password, with duplicate-username validation.
+- Admin - (Anh Nguyen - Member 2) 
+    Administer User Accounts (ManageUserAccountsJPanel, AdminUserAccount, CreateUserAccountJPanel) 
+        View all user accounts in a table (User Name, Status, Person, Last Updated).
+        Create a new account for any person who has a profile but no account yet (the create screen lists only account-less profiles           from the Employee, Student, and Faculty directories).
+        Modify an account's username, password, and status; the person's name is shown read-only.
+        Delete an account with a confirmation prompt.
+    Register Persons (HR) (ManagePersonsJPanel → AdministerPersonJPanel)
+        Register a new person with name, email, and phone.
+        Select a registered person and assign them a role (Employee/Admin, Faculty, or Student), which creates the matching profile.
+        Create a user account (username + password) for the newly profiled person, with duplicate username validation.
+    Manage Students (ManageStudentJPanel)
+        View all students (Name, Email, Phone, Hobbies).
+        Update a selected student's details.
+        Delete a student (and their linked login if one exists).
+    Manage Faculty (ManageFacultyJPanel)
+        View all faculty members in a table.
+        Update a selected faculty member's name.
+        Delete a faculty member.
+    Manage Staff / Employees (ManageEmployeeJPanel)
+        View all employees (Name, Email, Phone).
+        Update a selected employee's details.
+        Delete an employee, with a guard that prevents the logged-in admin from deleting their own record.
+    My Profile (AdminMyProfileJPanel)
+        View the logged-in admin's own details (name, role, last updated).
+        Update their own email, phone, username, and password, with duplicate-username validation.
 
 6. Usage Instructions
 //Provide a step-by-step guide on how to interact with the system.
