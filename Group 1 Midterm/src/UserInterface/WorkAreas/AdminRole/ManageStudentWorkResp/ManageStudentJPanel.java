@@ -192,15 +192,15 @@ public class ManageStudentJPanel extends javax.swing.JPanel {
                     "Selection Required", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        String name = txtName.getText().trim();
+        String name = txtName.getText();
         if (name.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Name cannot be empty.",
                     "Validation", JOptionPane.WARNING_MESSAGE);
             return;
         }
         selected.getPerson().setName(name);
-        selected.getPerson().setPhoneNumber(txtPhone.getText().trim());
-        selected.setHobbies(txtHobbies.getText().trim());
+        selected.getPerson().setPhoneNumber(txtPhone.getText());
+        selected.setHobbies(txtHobbies.getText());
         refreshTable();
         JOptionPane.showMessageDialog(this, "Student updated.");
 

@@ -4,17 +4,35 @@
  */
 package UserInterface.WorkAreas.AdminRole;
 
+import Business.Business;
+import Business.Person.Person;
+import Business.Profiles.EmployeeProfile;
+import Business.UserAccounts.UserAccount;
+import Business.UserAccounts.UserAccountDirectory;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author anhnguyen
  */
 public class AdminMyProfileJPanel extends javax.swing.JPanel {
 
+    JPanel CardSequencePanel;
+    Business business;
+    UserAccount userAccount;
+
     /**
      * Creates new form AdminMyProfileJPanel
      */
-    public AdminMyProfileJPanel() {
+    public AdminMyProfileJPanel(Business bz, UserAccount ua, JPanel jp) {
+        this.business = bz;
+        this.userAccount = ua;
+        this.CardSequencePanel = jp;
         initComponents();
+
+        populate();
     }
 
     /**
@@ -184,6 +202,34 @@ public class AdminMyProfileJPanel extends javax.swing.JPanel {
 
     private void btnUpdateProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateProfileActionPerformed
         // TODO add your handling code here:
+        String email = txtEmail.getText();
+        String phone = txtPhone.getText();
+        String un = txtUsername.getText();
+        String pw = txtPassword.getText();
+
+        if (email.isEmpty() || phone.isEmpty() || un.isEmpty() || pw.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "All fields are required.", "Validation", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // username must stay unique
+        UserAccountDirectory uad = business.getUserAccountDirectory();
+        UserAccount existing = uad.findByUsername(un);
+        if (existing != null && existing != userAccount) {
+            JOptionPane.showMessageDialog(this, "That username is already taken.", "Duplicate", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        Person person = userAccount.getAssociatedPersonProfile().getPerson();
+        person.setEmail(email);
+        person.setPhoneNumber(phone);
+        userAccount.setUserLoginName(un);
+        userAccount.setPassword(pw);
+        userAccount.setLastUpdated(new java.util.Date());
+
+        lblLastUpdatedValue.setText(userAccount.getLastUpdatedText());
+        JOptionPane.showMessageDialog(this, "Profile updated.");
+
     }//GEN-LAST:event_btnUpdateProfileActionPerformed
 
 
@@ -206,4 +252,18 @@ public class AdminMyProfileJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtPhone;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
+
+    private void populate() {
+        EmployeeProfile profile = (EmployeeProfile) userAccount.getAssociatedPersonProfile();
+        Person person = profile.getPerson();
+
+        lblNameValue.setText(person.getName());
+        lblRoleValue.setText(profile.getRole());
+        lblLastUpdatedValue.setText(userAccount.getLastUpdatedText());
+
+        txtEmail.setText(person.getEmail());          
+        txtPhone.setText(person.getPhoneNumber());
+        txtUsername.setText(userAccount.getUserLoginName());
+        txtPassword.setText(userAccount.getPassword());
+    }
 }
