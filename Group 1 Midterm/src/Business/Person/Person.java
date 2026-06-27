@@ -19,6 +19,7 @@ public class Person {
     public Person(String id) {
 
         this.id = id;
+        this.name = id;
     }
 
     public String getPersonId() {
@@ -55,10 +56,7 @@ public class Person {
     
 
     public boolean isMatch(String id) {
-        if (getPersonId().equals(id)) {
-            return true;
-        }
-        return false;
+         return id.equals(this.id);
     }
 
     @Override

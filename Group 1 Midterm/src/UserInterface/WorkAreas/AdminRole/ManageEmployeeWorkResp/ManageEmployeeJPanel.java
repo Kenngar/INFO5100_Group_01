@@ -26,19 +26,206 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtName = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblFaculty = new javax.swing.JTable();
+        btnDelete = new javax.swing.JButton();
+        txtEmail = new javax.swing.JTextField();
+        lblEmail = new javax.swing.JLabel();
+        txtPhone = new javax.swing.JTextField();
+        lblPhone = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(0, 153, 153));
+
+        lblName.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblName.setText("Name");
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jLabel1.setText("Manage Employee/Staff");
+
+        btnBack.setText("<<< Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
+        tblFaculty.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Employee Name", "Email ", "Phone"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblFaculty.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tblFacultyMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblFaculty);
+
+        btnDelete.setText("Delete ");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        lblEmail.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblEmail.setText("Email");
+
+        lblPhone.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblPhone.setText("Phone");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblName)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnBack)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblPhone)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblEmail)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblName)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEmail)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPhone)
+                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnDelete))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        CardSequencePanel.remove(this);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        if (selected == null) {
+            JOptionPane.showMessageDialog(this, "Select a faculty member first.",
+                "Selection Required", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        String name = txtName.getText().trim();
+        if (name.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Name cannot be empty.",
+                "Validation", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        selected.getPerson().setPersonId(name);
+        refreshTable();
+        JOptionPane.showMessageDialog(this, "Faculty updated.");
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void tblFacultyMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFacultyMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblFacultyMousePressed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        if (selected == null) {
+            JOptionPane.showMessageDialog(this, "Select a faculty member first.",
+                "Selection Required", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        int confirm = JOptionPane.showConfirmDialog(this,
+            "Delete faculty \"" + selected.getPerson().getPersonId() + "\"?",
+            "Confirm Delete", JOptionPane.YES_NO_OPTION);
+        if (confirm != JOptionPane.YES_OPTION) {
+            return;
+        }
+        business.getFacultydirectory().removeFaculty(selected);
+        selected = null;
+        txtName.setText("");
+        refreshTable();
+        JOptionPane.showMessageDialog(this, "Faculty deleted.");
+
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPhone;
+    private javax.swing.JTable tblFaculty;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPhone;
     // End of variables declaration//GEN-END:variables
 }

@@ -26,19 +26,184 @@ public class AdminMyProfileJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTitle = new javax.swing.JLabel();
+        lblRole = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        lblUserName = new javax.swing.JLabel();
+        lblNameValue = new javax.swing.JLabel();
+        lblLastUpdated = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
+        lblLastUpdatedValue = new javax.swing.JLabel();
+        lblPhone = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        lblRoleValue = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
+        btnUpdateProfile = new javax.swing.JButton();
+        txtPassword = new javax.swing.JTextField();
+        txtUsername = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        txtPhone = new javax.swing.JTextField();
+
+        setBackground(new java.awt.Color(0, 153, 153));
+
+        lblTitle.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        lblTitle.setText("My Profile (Admin)");
+
+        lblRole.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblRole.setText("Role");
+
+        lblName.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblName.setText("Name");
+
+        lblUserName.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblUserName.setText("User Name");
+
+        lblNameValue.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        lblNameValue.setForeground(new java.awt.Color(255, 255, 255));
+
+        lblLastUpdated.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblLastUpdated.setText("Last Updated");
+
+        lblEmail.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblEmail.setText("Email");
+
+        lblLastUpdatedValue.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        lblLastUpdatedValue.setForeground(new java.awt.Color(255, 255, 255));
+
+        lblPhone.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblPhone.setText("Phone");
+
+        btnBack.setText("<< Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        lblRoleValue.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        lblRoleValue.setForeground(new java.awt.Color(255, 255, 255));
+
+        lblPassword.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblPassword.setText("Password");
+
+        btnUpdateProfile.setText("Update Profile");
+        btnUpdateProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateProfileActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnUpdateProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblLastUpdated, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblName)
+                                    .addComponent(lblRole, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblPassword))
+                                .addGap(58, 58, 58)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lblRoleValue, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblNameValue, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtPhone)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(2, 2, 2)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lblLastUpdatedValue, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtPassword)
+                                            .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)))
+                                    .addComponent(txtEmail)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lblTitle)
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNameValue, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblRole, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblRoleValue, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblEmail)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPhone)
+                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblUserName)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPassword)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblLastUpdatedValue, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLastUpdated))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack)
+                    .addComponent(btnUpdateProfile))
+                .addGap(57, 57, 57))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        CardSequencePanel.remove(this);
+        ((CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnUpdateProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateProfileActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUpdateProfileActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnUpdateProfile;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblLastUpdated;
+    private javax.swing.JLabel lblLastUpdatedValue;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblNameValue;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblPhone;
+    private javax.swing.JLabel lblRole;
+    private javax.swing.JLabel lblRoleValue;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblUserName;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtPassword;
+    private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

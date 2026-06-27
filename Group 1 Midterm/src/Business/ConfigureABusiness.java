@@ -16,6 +16,8 @@ import Business.Profiles.EmployeeDirectory;
 import Business.Profiles.EmployeeProfile;
 import Business.Profiles.StudentDirectory;
 import Business.Profiles.StudentProfile;
+import Business.Profiles.FacultyDirectory;
+import Business.Profiles.FacultyProfile;
 
 import Business.UserAccounts.UserAccount;
 import Business.UserAccounts.UserAccountDirectory;
@@ -34,30 +36,77 @@ class ConfigureABusiness {
       PersonDirectory persondirectory = business.getPersonDirectory();
 // person representing sales organization        
         Person person001 = persondirectory.newPerson("John Smith");
+        person001.setEmail("john.smith@nu.edu");
+        person001.setPhoneNumber("617-555-0100");
+
         Person person002 = persondirectory.newPerson("Gina Montana");
+        person002.setEmail("gina.montana@nu.edu");
+        person002.setPhoneNumber("617-555-0101");
+
         Person person003 = persondirectory.newPerson("Adam Rollen");
+        person003.setEmail("adam.rollen@nu.edu");
+        person003.setPhoneNumber("617-555-0102");
+        
+        Person person004 = persondirectory.newPerson("Maria Lopez");
+        person004.setEmail("maria.lopez@nu.edu");
+        person004.setPhoneNumber("617-555-0103");
  
         Person person005 = persondirectory.newPerson("Jim Dellon");
-        Person person006 = persondirectory.newPerson("Anna Shnider");
-        Person person007 = persondirectory.newPerson("Laura Brown");
-        Person person008 = persondirectory.newPerson("Jack While");
-        Person person009 = persondirectory.newPerson("Fidelity"); //we use this as customer
+        person005.setEmail("jim.dellon@nu.edu");
+        person005.setPhoneNumber("617-555-0104");
 
-// Create Admins to manage the business
+        Person person006 = persondirectory.newPerson("Anna Shnider");
+        person006.setEmail("anna.shnider@nu.edu");
+        person006.setPhoneNumber("617-555-0105");
+
+        Person person007 = persondirectory.newPerson("Laura Brown");
+        person007.setEmail("laura.brown@nu.edu");
+        person007.setPhoneNumber("617-555-0106");
+
+        Person person008 = persondirectory.newPerson("Jack White");
+        person008.setEmail("jack.white@nu.edu");
+        person008.setPhoneNumber("617-555-0107");
+        
+        Person person009 = persondirectory.newPerson("David Kim");
+        person009.setEmail("david.kim@nu.edu");
+        person009.setPhoneNumber("617-555-0108");
+
+
+        
+// Create Admins/Employee to manage the business
         EmployeeDirectory employeedirectory = business.getEmployeeDirectory();
         EmployeeProfile employeeprofile0 = employeedirectory.newEmployeeProfile(person001);
+        EmployeeProfile employeeprofile1 = employeedirectory.newEmployeeProfile(person006); 
         
         StudentDirectory studentdirectory = business.getStudentDirectory();
         StudentProfile studentprofile0 = studentdirectory.newStudentProfile(person003);
         
 
+//Create Faculty
+        FacultyDirectory facultydirectory = business.getFacultydirectory();
+        FacultyProfile facultyprofile0 = facultydirectory.newFacultyProfile(person007); 
+        FacultyProfile facultyprofile1 = facultydirectory.newFacultyProfile(person008); 
+
+
 
    
 // Create User accounts that link to specific profiles
         UserAccountDirectory uadirectory = business.getUserAccountDirectory();
-        UserAccount ua3 = uadirectory.newUserAccount(employeeprofile0, "admin", "****"); /// order products for one of the customers and performed by a sales person
-        UserAccount ua4 = uadirectory.newUserAccount(studentprofile0, "adam", "****"); /// order products for one of the customers and performed by a sales person
+        //Employee Staff
+        UserAccount ua1 = uadirectory.newUserAccount(employeeprofile0, "admin", "****"); // John Smith
+        UserAccount ua2 = uadirectory.newUserAccount(employeeprofile1, "anna",  "****"); // Anna Shnider
+       
+        
+        // Student
+        UserAccount ua3 = uadirectory.newUserAccount(studentprofile0, "adam", "****"); /// order products for one of the customers and performed by a sales person
 
+        
+        //Faculty
+        UserAccount ua4 = uadirectory.newUserAccount(facultyprofile0, "laura", "****"); // Laura Brown
+        UserAccount ua5 = uadirectory.newUserAccount(facultyprofile1, "jack",  "****"); // Jack White
+        
+        
+        
         Department department = new Department("MSIS");
         business.setDepartment(department);
         
@@ -93,6 +142,10 @@ class ConfigureABusiness {
         department.addElectiveCourse(c008);
         
         return business;
+        
+        
+        
+        
     }
 
 }

@@ -73,45 +73,41 @@ public class ManageUserAccountsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Back = new javax.swing.JButton();
-        Next = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        btnCreateNewAccount = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        UserAccountTable = new javax.swing.JTable();
+        tblManageUser = new javax.swing.JTable();
+        btnBack = new javax.swing.JButton();
+        btnModify = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setLayout(null);
 
-        Back.setText("<< Back");
-        Back.addActionListener(new java.awt.event.ActionListener() {
+        btnCreateNewAccount.setText("Create New Account");
+        btnCreateNewAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackActionPerformed(evt);
+                btnCreateNewAccountActionPerformed(evt);
             }
         });
-        add(Back);
-        Back.setBounds(30, 300, 76, 32);
+        add(btnCreateNewAccount);
+        btnCreateNewAccount.setBounds(130, 350, 210, 23);
 
-        Next.setText("Next >>");
-        Next.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NextActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
-        add(Next);
-        Next.setBounds(500, 300, 80, 32);
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setText("User Accounts");
-        add(jLabel1);
-        jLabel1.setBounds(30, 90, 190, 19);
+        add(btnDelete);
+        btnDelete.setBounds(370, 350, 80, 23);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel2.setText("Manage User Accounts");
         add(jLabel2);
-        jLabel2.setBounds(21, 20, 550, 29);
+        jLabel2.setBounds(21, 20, 550, 28);
 
-        UserAccountTable.setModel(new javax.swing.table.DefaultTableModel(
+        tblManageUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -119,38 +115,64 @@ public class ManageUserAccountsJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "User Name", "Status", "Last Activity", "Last Updated"
+                "User Name", "Status", "Person", "Last Updated"
             }
-        ));
-        UserAccountTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                UserAccountTableMousePressed(evt);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(UserAccountTable);
+        tblManageUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tblManageUserMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblManageUser);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(30, 110, 550, 130);
+        jScrollPane1.setBounds(20, 80, 590, 140);
+
+        btnBack.setText("<< Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack);
+        btnBack.setBounds(20, 350, 80, 23);
+
+        btnModify.setText("Modify >>");
+        btnModify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyActionPerformed(evt);
+            }
+        });
+        add(btnModify);
+        btnModify.setBounds(490, 350, 100, 23);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+    private void btnCreateNewAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateNewAccountActionPerformed
         // TODO add your handling code here:
         CardSequencePanel.remove(this);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
  //       ((java.awt.CardLayout)CardSequencePanel.getLayout()).show(CardSequencePanel, "IdentifyEventTypes");
 
-    }//GEN-LAST:event_BackActionPerformed
+    }//GEN-LAST:event_btnCreateNewAccountActionPerformed
 
-    private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         if(selecteduseraccount==null) return;
         AdminUserAccount mppd = new AdminUserAccount(selecteduseraccount, CardSequencePanel);
         CardSequencePanel.add(mppd);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
 
-    }//GEN-LAST:event_NextActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void UserAccountTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserAccountTableMousePressed
+    private void tblManageUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblManageUserMousePressed
         // Extracts the row (uaser account) in the table that is selected by the user
         int size = UserAccountTable.getRowCount();
         int selectedrow = UserAccountTable.getSelectionModel().getLeadSelectionIndex();
@@ -164,18 +186,27 @@ public class ManageUserAccountsJPanel extends javax.swing.JPanel {
         
         
             
-    }//GEN-LAST:event_UserAccountTableMousePressed
+    }//GEN-LAST:event_tblManageUserMousePressed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModifyActionPerformed
     
     }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Back;
-    private javax.swing.JButton Next;
-    private javax.swing.JTable UserAccountTable;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCreateNewAccount;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnModify;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblManageUser;
     // End of variables declaration//GEN-END:variables
 
 }

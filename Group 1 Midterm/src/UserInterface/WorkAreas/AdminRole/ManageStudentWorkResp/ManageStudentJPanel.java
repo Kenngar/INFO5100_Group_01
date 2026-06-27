@@ -26,19 +26,189 @@ public class ManageStudentJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtName = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblStudent = new javax.swing.JTable();
+        btnDelete = new javax.swing.JButton();
+        lblName1 = new javax.swing.JLabel();
+        txtHobbies = new javax.swing.JTextField();
+
+        setBackground(new java.awt.Color(0, 153, 153));
+
+        lblName.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblName.setText("Name");
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jLabel1.setText("Manage Student");
+
+        btnBack.setText("<<< Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
+        tblStudent.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Student Name", "Email ", "Phone #"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblStudent.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tblStudentMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblStudent);
+
+        btnDelete.setText("Delete ");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        lblName1.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblName1.setText("Phone");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(btnBack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblName)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblName1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtHobbies, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblName)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblName1)
+                    .addComponent(txtHobbies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnDelete))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        CardSequencePanel.remove(this);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        if (selected == null) {
+            JOptionPane.showMessageDialog(this, "Select a faculty member first.",
+                "Selection Required", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        String name = txtName.getText().trim();
+        if (name.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Name cannot be empty.",
+                "Validation", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        selected.getPerson().setPersonId(name);
+        refreshTable();
+        JOptionPane.showMessageDialog(this, "Faculty updated.");
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void tblStudentMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblStudentMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblStudentMousePressed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        if (selected == null) {
+            JOptionPane.showMessageDialog(this, "Select a faculty member first.",
+                "Selection Required", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        int confirm = JOptionPane.showConfirmDialog(this,
+            "Delete faculty \"" + selected.getPerson().getPersonId() + "\"?",
+            "Confirm Delete", JOptionPane.YES_NO_OPTION);
+        if (confirm != JOptionPane.YES_OPTION) {
+            return;
+        }
+        business.getFacultydirectory().removeFaculty(selected);
+        selected = null;
+        txtName.setText("");
+        refreshTable();
+        JOptionPane.showMessageDialog(this, "Faculty deleted.");
+
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblName1;
+    private javax.swing.JTable tblStudent;
+    private javax.swing.JTextField txtHobbies;
+    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }

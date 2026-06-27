@@ -42,7 +42,16 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
 
         Back = new javax.swing.JButton();
         Next = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
+        lblPhone = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        btnAddPerson = new javax.swing.JButton();
+        txtEmail = new javax.swing.JTextField();
+        txtPhone = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setLayout(null);
@@ -54,7 +63,7 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
             }
         });
         add(Back);
-        Back.setBounds(20, 260, 80, 23);
+        Back.setBounds(30, 420, 80, 23);
 
         Next.setText("Next >>");
         Next.addActionListener(new java.awt.event.ActionListener() {
@@ -63,12 +72,61 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
             }
         });
         add(Next);
-        Next.setBounds(500, 260, 80, 23);
+        Next.setBounds(510, 420, 80, 23);
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel2.setText("Manage Personnel (HR)");
-        add(jLabel2);
-        jLabel2.setBounds(21, 20, 550, 28);
+        lblTitle.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        lblTitle.setText("Manage Personnel (HR) - Register Person");
+        add(lblTitle);
+        lblTitle.setBounds(21, 20, 550, 28);
+
+        lblEmail.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblEmail.setText("Email");
+        add(lblEmail);
+        lblEmail.setBounds(30, 110, 60, 20);
+
+        lblPhone.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblPhone.setText("Phone");
+        add(lblPhone);
+        lblPhone.setBounds(30, 150, 70, 20);
+
+        lblName.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblName.setText("Name");
+        add(lblName);
+        lblName.setBounds(30, 70, 70, 20);
+
+        btnAddPerson.setText("Add Person");
+        add(btnAddPerson);
+        btnAddPerson.setBounds(220, 190, 140, 23);
+        add(txtEmail);
+        txtEmail.setBounds(130, 110, 320, 23);
+        add(txtPhone);
+        txtPhone.setBounds(130, 150, 320, 23);
+        add(txtName);
+        txtName.setBounds(130, 70, 320, 23);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Name", "Email", "Phone"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        add(jScrollPane1);
+        jScrollPane1.setBounds(50, 240, 520, 150);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
@@ -92,7 +150,16 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
     private javax.swing.JButton Next;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnAddPerson;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPhone;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPhone;
     // End of variables declaration//GEN-END:variables
 
 }

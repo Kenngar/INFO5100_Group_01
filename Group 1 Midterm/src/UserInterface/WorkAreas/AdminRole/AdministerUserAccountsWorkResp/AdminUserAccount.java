@@ -40,125 +40,145 @@ public class AdminUserAccount extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Back = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        Back1 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         lblRole = new javax.swing.JLabel();
         lblUserName = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         txtUserName = new javax.swing.JTextField();
-        lblStatusValue = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
-        lblRoleValue1 = new javax.swing.JLabel();
+        lblNameValue = new javax.swing.JLabel();
+        cmbStatus = new javax.swing.JComboBox<>();
+        lblRoleValue = new javax.swing.JLabel();
+        btnUpdate1 = new javax.swing.JButton();
+        lblLastUpdatedValue = new javax.swing.JLabel();
+        lblLastUpdated = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setLayout(null);
 
-        Back.setText("Update>>");
-        Back.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setText("Delete Account");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
-        add(Back);
-        Back.setBounds(490, 390, 100, 23);
+        add(btnDelete);
+        btnDelete.setBounds(50, 350, 150, 23);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel2.setText("Administer User Account");
         add(jLabel2);
         jLabel2.setBounds(21, 20, 550, 28);
 
-        Back1.setText("<< Back");
-        Back1.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("<< Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Back1ActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
-        add(Back1);
-        Back1.setBounds(50, 390, 100, 23);
+        add(btnBack);
+        btnBack.setBounds(50, 390, 100, 23);
 
         lblRole.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
-        lblRole.setText("Role");
+        lblRole.setText("Role:");
         add(lblRole);
-        lblRole.setBounds(50, 100, 80, 20);
+        lblRole.setBounds(40, 70, 80, 20);
 
         lblUserName.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
         lblUserName.setText("User Name");
         add(lblUserName);
-        lblUserName.setBounds(50, 180, 110, 20);
+        lblUserName.setBounds(40, 140, 110, 20);
 
         lblName.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
-        lblName.setText("Name");
+        lblName.setText("Name:");
         add(lblName);
-        lblName.setBounds(50, 140, 44, 20);
+        lblName.setBounds(290, 70, 60, 20);
 
         lblPassword.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
         lblPassword.setText("Password");
         add(lblPassword);
-        lblPassword.setBounds(50, 220, 100, 20);
-
-        txtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
-            }
-        });
-        add(txtName);
-        txtName.setBounds(220, 140, 120, 23);
+        lblPassword.setBounds(40, 180, 100, 20);
         add(txtPassword);
-        txtPassword.setBounds(220, 220, 120, 23);
+        txtPassword.setBounds(210, 180, 280, 23);
         add(txtUserName);
-        txtUserName.setBounds(220, 180, 120, 23);
-
-        lblStatusValue.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblStatusValue);
-        lblStatusValue.setBounds(220, 260, 80, 17);
+        txtUserName.setBounds(210, 140, 280, 23);
 
         lblStatus.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
         lblStatus.setText("Status");
         add(lblStatus);
-        lblStatus.setBounds(50, 260, 100, 20);
+        lblStatus.setBounds(40, 220, 100, 20);
 
-        lblRoleValue1.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblRoleValue1);
-        lblRoleValue1.setBounds(220, 100, 80, 17);
+        lblNameValue.setForeground(new java.awt.Color(255, 255, 255));
+        add(lblNameValue);
+        lblNameValue.setBounds(370, 70, 140, 17);
+
+        cmbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        add(cmbStatus);
+        cmbStatus.setBounds(210, 220, 280, 23);
+
+        lblRoleValue.setForeground(new java.awt.Color(255, 255, 255));
+        add(lblRoleValue);
+        lblRoleValue.setBounds(120, 70, 130, 17);
+
+        btnUpdate1.setText("Update>>");
+        btnUpdate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdate1ActionPerformed(evt);
+            }
+        });
+        add(btnUpdate1);
+        btnUpdate1.setBounds(490, 390, 100, 23);
+
+        lblLastUpdatedValue.setForeground(new java.awt.Color(255, 255, 255));
+        add(lblLastUpdatedValue);
+        lblLastUpdatedValue.setBounds(210, 260, 280, 20);
+
+        lblLastUpdated.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        lblLastUpdated.setText("Last Updated");
+        add(lblLastUpdated);
+        lblLastUpdated.setBounds(40, 260, 100, 19);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
 
         CardSequencePanel.remove(this);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
 
-    }//GEN-LAST:event_BackActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void Back1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back1ActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
          CardSequencePanel.remove(this);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
 
 
-    }//GEN-LAST:event_Back1ActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+    private void btnUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
+    }//GEN-LAST:event_btnUpdate1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Back;
-    private javax.swing.JButton Back1;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnUpdate1;
+    private javax.swing.JComboBox<String> cmbStatus;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblLastUpdated;
+    private javax.swing.JLabel lblLastUpdatedValue;
     private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblNameValue;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblRole;
-    private javax.swing.JLabel lblRoleValue1;
+    private javax.swing.JLabel lblRoleValue;
     private javax.swing.JLabel lblStatus;
-    private javax.swing.JLabel lblStatusValue;
     private javax.swing.JLabel lblUserName;
-    private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
