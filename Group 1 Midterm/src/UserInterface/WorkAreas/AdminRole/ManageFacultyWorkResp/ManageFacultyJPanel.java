@@ -231,7 +231,7 @@ public class ManageFacultyJPanel extends javax.swing.JPanel {
 
             Object[] row = new Object[4];
             row[0] = fp.getPerson().getName();   
-            row[1] ="N/A";
+            row[1] = fp.getTitle();
             row[2] = "N/A";
             row[3] = count;
             model.addRow(row);

@@ -69,38 +69,9 @@ class ConfigureABusiness {
         Person person009 = persondirectory.newPerson("David Kim");
         person009.setEmail("david.kim@nu.edu");
         person009.setPhoneNumber("617-555-0108");
-
-// Create Admins/Employee to manage the business
-        EmployeeDirectory employeedirectory = business.getEmployeeDirectory();
-        EmployeeProfile employeeprofile0 = employeedirectory.newEmployeeProfile(person001);
-        EmployeeProfile employeeprofile1 = employeedirectory.newEmployeeProfile(person006);
-
-        StudentDirectory studentdirectory = business.getStudentDirectory();
-        StudentProfile studentprofile0 = studentdirectory.newStudentProfile(person003);
-
-//Create Faculty
-        FacultyDirectory facultydirectory = business.getFacultydirectory();
-        FacultyProfile facultyprofile0 = facultydirectory.newFacultyProfile(person007);
-        FacultyProfile facultyprofile1 = facultydirectory.newFacultyProfile(person008);
-
-// Create User accounts that link to specific profiles
-        UserAccountDirectory uadirectory = business.getUserAccountDirectory();
-        //Employee Staff
-        UserAccount ua1 = uadirectory.newUserAccount(employeeprofile0, "admin", "****"); // John Smith
-        ua1.setLastUpdated(makeDate(2026, 1, 15));
-        UserAccount ua2 = uadirectory.newUserAccount(employeeprofile1, "anna", "****"); // Anna Shnider
-        ua2.setLastUpdated(makeDate(2026, 3, 20));
-
-        // Student
-        UserAccount ua3 = uadirectory.newUserAccount(studentprofile0, "adam", "****"); /// order products for one of the customers and performed by a sales person
-
-        //Faculty
-        UserAccount ua4 = uadirectory.newUserAccount(facultyprofile0, "laura", "****"); // Laura Brown
-        ua4.setLastUpdated(makeDate(2025, 4, 29));
         
-        UserAccount ua5 = uadirectory.newUserAccount(facultyprofile1, "jack", "****"); // Jack White
-
-        Department department = new Department("MSIS");
+        
+         Department department = new Department("MSIS");
         business.setDepartment(department);
 
         Course c001 = department.newCourse("0001", "INFO5001", 3);
@@ -134,6 +105,48 @@ class ConfigureABusiness {
         department.addElectiveCourse(c007);
         department.addElectiveCourse(c008);
 
+        
+        
+
+// Create Admins/Employee to manage the business
+        EmployeeDirectory employeedirectory = business.getEmployeeDirectory();
+        EmployeeProfile employeeprofile0 = employeedirectory.newEmployeeProfile(person001);
+        EmployeeProfile employeeprofile1 = employeedirectory.newEmployeeProfile(person006);
+
+//Student        
+        StudentDirectory studentdirectory = business.getStudentDirectory();
+        StudentProfile studentprofile0 = studentdirectory.newStudentProfile(person003);
+
+//Create Faculty
+        FacultyDirectory facultydirectory = business.getFacultydirectory();
+        FacultyProfile facultyprofile0 = facultydirectory.newFacultyProfile(person007);
+        facultyprofile0.setTitle("Professor");
+        facultyprofile0.AssignAsTeacher(co1);   // assignment #1
+        facultyprofile0.AssignAsTeacher(co3); // assignment #2
+       
+        FacultyProfile facultyprofile1 = facultydirectory.newFacultyProfile(person008);
+        facultyprofile1.setTitle("Associate Professor");
+        facultyprofile1.AssignAsTeacher(co5); // assignment #1
+
+// Create User accounts that link to specific profiles
+        UserAccountDirectory uadirectory = business.getUserAccountDirectory();
+        //Employee Staff
+        UserAccount ua1 = uadirectory.newUserAccount(employeeprofile0, "admin", "****"); // John Smith
+        ua1.setLastUpdated(makeDate(2026, 1, 15));
+        UserAccount ua2 = uadirectory.newUserAccount(employeeprofile1, "anna", "****"); // Anna Shnider
+        ua2.setLastUpdated(makeDate(2026, 3, 20));
+
+        // Student
+        UserAccount ua3 = uadirectory.newUserAccount(studentprofile0, "adam", "****"); /// order products for one of the customers and performed by a sales person
+
+        //Faculty
+        UserAccount ua4 = uadirectory.newUserAccount(facultyprofile0, "laura", "****"); // Laura Brown
+        ua4.setLastUpdated(makeDate(2025, 4, 29));
+
+        UserAccount ua5 = uadirectory.newUserAccount(facultyprofile1, "jack", "****"); // Jack White
+        
+        
+        
         return business;
 
     }

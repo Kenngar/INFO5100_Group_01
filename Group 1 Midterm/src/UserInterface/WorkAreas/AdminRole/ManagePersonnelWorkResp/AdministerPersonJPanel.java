@@ -31,10 +31,11 @@ public class AdministerPersonJPanel extends javax.swing.JPanel {
     Business business;
     ManagePersonsJPanel parent;
 
-    public AdministerPersonJPanel(Business bz, Person p, JPanel jp) {
+    public AdministerPersonJPanel(Business bz, Person p, ManagePersonsJPanel parent, JPanel jp) {
         CardSequencePanel = jp;
         this.business = bz;
         this.person = p;
+        this.parent = parent;
         initComponents();
 
         populate();
@@ -87,7 +88,7 @@ public class AdministerPersonJPanel extends javax.swing.JPanel {
         add(txtFullName);
         txtFullName.setBounds(150, 80, 260, 23);
         add(txtEmail);
-        txtEmail.setBounds(150, 120, 260, 23);
+        txtEmail.setBounds(150, 120, 260, 30);
         add(txtPhone);
         txtPhone.setBounds(150, 160, 260, 23);
 
@@ -168,6 +169,7 @@ public class AdministerPersonJPanel extends javax.swing.JPanel {
         person.setName(name);
         person.setEmail(txtEmail.getText());
         person.setPhoneNumber(txtPhone.getText());
+        parent.refreshTable();
         JOptionPane.showMessageDialog(this, "Person details saved.");
 
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -211,7 +213,7 @@ public class AdministerPersonJPanel extends javax.swing.JPanel {
             return;
         }
 
-        String un = txtUsename.getText().trim();
+        String un = txtUsename.getText();
         String pw = txtPassword.getText();
 
         if (un.isEmpty() || pw.isEmpty()) {

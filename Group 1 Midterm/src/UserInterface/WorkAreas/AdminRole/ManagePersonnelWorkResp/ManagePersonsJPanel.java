@@ -106,7 +106,7 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
         add(btnAddPerson);
         btnAddPerson.setBounds(220, 190, 140, 23);
         add(txtEmail);
-        txtEmail.setBounds(130, 110, 320, 23);
+        txtEmail.setBounds(130, 110, 320, 30);
         add(txtPhone);
         txtPhone.setBounds(130, 150, 320, 23);
         add(txtName);
@@ -154,14 +154,17 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
             return;
         }
 
-        selectedPerson = (Person) tblRegisterPerson.getValueAt(selectedRow, 0);
+        String name = (String) tblRegisterPerson.getValueAt(selectedRow, 0);  // it's a String now
+        selectedPerson = business.getPersonDirectory().findPerson(name);      // look up the real Person
+
         if (selectedPerson == null) {
             return;
         }
 
-        AdministerPersonJPanel mppd = new AdministerPersonJPanel(business, selectedPerson, CardSequencePanel);
+        AdministerPersonJPanel mppd = new AdministerPersonJPanel(business, selectedPerson, this, CardSequencePanel);
         CardSequencePanel.add(mppd);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+
 
     }//GEN-LAST:event_NextActionPerformed
 
@@ -212,7 +215,7 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtPhone;
     // End of variables declaration//GEN-END:variables
 
-    private void refreshTable() {
+    public void refreshTable() {
         DefaultTableModel model = (DefaultTableModel) tblRegisterPerson.getModel();
 
         // clear existing rows
@@ -223,7 +226,7 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
         PersonDirectory pd = business.getPersonDirectory();
         for (Person p : pd.getPersonList()) {
             Object[] row = new Object[3];
-            row[0] = p; // Person.toString() shows the name
+            row[0] = p.getName();
             row[1] = p.getEmail();
             row[2] = p.getPhoneNumber();
             model.addRow(row);
