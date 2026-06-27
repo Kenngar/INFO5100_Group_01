@@ -16,19 +16,19 @@ logs in, the application authenticates their credentials and routes them to the 
 Netbeans IDE 16, JDK 19
 
 // Provide step-by-step setup instructions, including how to clone the repository and run the project
-Once the skeleton code is uploaded to the group repo. Team member will open github desktop, at the main branch we fetch origin to bring down the most updated version of the skeleton. We then switch to our own branch (e.g. feauture-member 2) and merge main to our own branch so we could start creating code on our own without messing up the main version of the skeleton. Then we would open the project in Netbeans and start our work. 
-Run the project: Run → Run Project (or press F6). The login window will appear.
+    Once the skeleton code is uploaded to the group repo. Team member will open github desktop, at the main branch we fetch origin to      bring down the most updated version of the skeleton. We then switch to our own branch (e.g. feauture-member 2) and merge main to       our own branch so we could start creating code on our own without messing up the main version of the skeleton. Then we would open      the project in Netbeans and start our work. 
+    Run the project: Run → Run Project (or press F6). The login window will appear.
 
 
 4. Authentication & Access Control: 
 // Explain the authentication process (e.g., login, logout)
-On launch, the application shows a login screen with User Name and Password fields.
-When the user clicks Login, the system calls UserAccountDirectory.AuthenticateUser(username, password), which checks the entered credentials against every stored UserAccount.
-If no match is found, login is rejected and the user remains on the login screen.
-If a match is found, the system retrieves the account's associated Profile and routes the user to the correct work area.
+    On launch, the application shows a login screen with User Name and Password fields.
+    When the user clicks Login, the system calls UserAccountDirectory.AuthenticateUser(username, password), which checks the entered       credentials against every stored UserAccount.
+    If no match is found, login is rejected and the user remains on the login screen.
+    If a match is found, the system retrieves the account's associated Profile and routes the user to the correct work area.
 // Describe the authorization rules for different user roles (Admin, Faculty, Student)
-After successful authentication, the system inspects the profile type and opens only that role's work area:
-Admin - EmployeeProfile - "Admin" - AdminRoleWorkAreaJPanel
+    After successful authentication, the system inspects the profile type and opens only that role's work area:
+    Admin - EmployeeProfile - "Admin" - AdminRoleWorkAreaJPanel
 
 5. Features Implemented
 //Detail the functionalities implemented for each role
@@ -69,8 +69,8 @@ Logging in
     Click Logout (or the Back navigation) to return to the login screen.
 
 //Include example scenarios for different user roles.
-* Example scenario — Administrator
-ADMIN - Log in as admin / ****.
+- Example scenario — Administrator
+   ADMIN - Log in as admin / ****.
    Click Register Persons (HR), add a person (name, email, phone), then click Add Person.
    Select that person in the table and click Next.
    Choose a role (e.g. Employee/ Admin) and click Create Profile, then enter a username/password and click Create User Account.
@@ -95,7 +95,7 @@ ADMIN Role:
 9. Future Enhancements
 //Suggest potential improvements or additional features that could be implemented.
 ADMIN: 
-- Separate admin and non-admin employees. Replace the hardcoded EmployeeProfile role with a flag so some staff are administrators and others are regular employees, and add a dedicated non admin employee work area.
+- Separate admin and non-admin employees. Replace the hardcoded EmployeeProfile role with a flag so some staff are administrators and others are regular employees, and add a dedicated non-admin employee work area.
 - Password security. Store hashed passwords instead of plain text, and mask the password field.
 
 
@@ -104,9 +104,9 @@ ADMIN:
 //Provide details on coding, documentation, testing, and other task
 
 Member 2 - Anh Nguyen (Admin)
-Coding: Implemented the full Administrator work area and its screens — Manage User Accounts, Create/Administer User Account, Register Persons, Administer Person (role + account creation), Manage Students, Manage Faculty, Manage Staff/Employees, and Admin My Profile. Contributed the Admin branch of the login routing and shared business-layer adjustments (Person, PersonDirectory, ConfigureABusiness seed data).
-Documentation: Authored the Administrator sections of this README (overview, features, usage, testing, challenges). 
-Testing: Manually tested all Administrator functions and the authentication/authorization flow (test cases A1–A4, B1–B3, C1–C7 above). Other: Managed branch commits and pull request(s) for the Admin feature branch.
+- Coding: Implemented the full Administrator work area and its screens — Manage User Accounts, Create/Administer User Account,         Register Persons, Administer Person (role + account creation), Manage Students, Manage Faculty, Manage Staff/Employees, and Admin My Profile. Contributed the Admin branch of the login routing and shared business-layer adjustments (Person, PersonDirectory, ConfigureABusiness seed data).
+- Documentation: Authored the Administrator sections of this README (overview, features, usage, testing, challenges). 
+- Testing: Manually tested all Administrator functions and the authentication/authorization flow. Other: Managed branch commits and pull requests for the Admin feature branch.
 
 
  
